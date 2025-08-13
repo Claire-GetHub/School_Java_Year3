@@ -1,6 +1,6 @@
 public class PEChpt1 {
     public static void main(String[] args) {
-        OnePointFive();
+        OnePointOne();
     }
 
     public static void OnePointOne() {
@@ -18,5 +18,28 @@ public class PEChpt1 {
 
     public static void OnePointFive() {
         System.out.println((9.5 * 4.5 - 2.5 * 3)/(45.5 - 3.5));
+    }
+
+    public static void OnePointSeven() {
+        System.out.println(4.0 * (1.0 - 1.0/3 + 1.0/5 - 1.0/7 + 1.0/9 - 1.0/11));
+        System.out.println(4.0 * (1.0 - 1.0/3 + 1.0/5 - 1.0/7 + 1.0/9 - 1.0/11 + 1.0/13));
+    }
+
+    public static void OnePointNine() {
+        System.out.println(4.5 * 7.9);
+        System.out.println(4.5 * 2 + 7.9 * 2);
+    }
+
+    public static void OnePointEleven() {
+        System.out.println(312032486 + (1 * ((1.0/7 - 1.0/13 + 1.0/45) * 31536000)));
+        System.out.println(312032486 + (2 * ((1.0/7 - 1.0/13 + 1.0/45) * 31536000)));
+        System.out.println(312032486 + (3 * ((1.0/7 - 1.0/13 + 1.0/45) * 31536000)));
+        System.out.println(312032486 + (4 * ((1.0/7 - 1.0/13 + 1.0/45) * 31536000)));
+        System.out.println(312032486 + (5 * ((1.0/7 - 1.0/13 + 1.0/45) * 31536000)));
+    }
+
+    public static void OnePointThirteen() {
+        System.out.println("x: " + ((44.5 * .55 - 50.2 * 5.9)/(3.4 * .55 - 50.2 * 2.1)));
+        System.out.println("y: " + ((3.4 * 5.9 - 44.5 * 2.1)/(3.4 * .55 - 50.2 * 2.1)));
     }
 }
