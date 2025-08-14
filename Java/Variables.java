@@ -31,16 +31,40 @@ public class Variables {
         //
         //1.0F -> turn 1.0, a double, into a float
 
-        ///////
+        //INCREMENT OPERATORS
+        // j = ++i;
+        //  add to i then asign to j
+        // j = i++;
+        //  asign to j then add to i
+
+        //CONVERTION RULES
+        // 
+
+        //TYPE CASTING
+        // small --> big
+        // byte, short, int, long, double
+        //  implicit
+        //   small to big (java does it)
+        //  explicit
+        //   big to small (you have to specify)
+        // += includes type casting
+
+        //COMMON ERRORS
+        // check types!!!
+
+        ///////EXAMPLES/TESTING///////
 
         // System.out.print("seconds: ");
         // int seconds = input.nextInt();
         // int minutes = seconds / 60;
         // int secondsLeft = seconds % 60;
 
+        // byte i = 100;
+        // long k = i * 3 + 4;
+        // double d = i * 3.1 + k / 2;
 
-        System.out.println(0XFFFF);
-        System.out.println(Math.pow(2.5, 2));
-        System.out.println(Math.pow(2.5, -2));
+        // System.out.println(i);
+        // System.out.println(k);
+        // System.out.println(d);
     }
 }
