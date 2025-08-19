@@ -1,10 +1,11 @@
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Scanner;
 import java.util.TimeZone;
 
 public class PEChpt2 {
     public static void main(String[] args) {
-        pointEight();
+        pointTwelve();
     }
 
     public static void pointTwo() {
@@ -42,12 +43,42 @@ public class PEChpt2 {
 
             Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 
-            //this line is broken
-            int hour = calendar.get(Calendar.HOUR_OF_DAY) + offset + (12);
+            int GMThour = calendar.get(Calendar.HOUR_OF_DAY);
             int minutes = calendar.get(Calendar.MINUTE);
             int seconds = calendar.get(Calendar.SECOND);
+            LocalTime currentTime = LocalTime.of(GMThour, minutes, seconds).plusHours(offset);
+
             System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
-            System.out.println("current time: " + hour + ":" + minutes + ":" + seconds);
+            System.out.println("current time: " + currentTime);
         }
     }
+
+    public static void pointTen() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.err.print("kilograms: ");
+            double kilograms = input.nextDouble();
+            System.err.print("initial: ");
+            double initialTempature = input.nextDouble();
+            System.err.print("final: ");
+            double finalTempature = input.nextDouble();
+            System.out.println(kilograms * (finalTempature - initialTempature) * 4184);
+        }
+    }
+
+    public static void pointTwelve() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("velocity & acceleration: ");
+            double velocity = input.nextDouble();
+
+            double acceleration = input.nextDouble();
+            System.out.println((Math.pow(velocity, 2)) / (2 * acceleration));
+        }
+    }
+
+    public static void pointForteen() {
+        try (Scanner input = new Scanner(System.in)) {
+            
+        } 
+    }
+    
 }

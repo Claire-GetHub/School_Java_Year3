@@ -66,5 +66,7 @@ public class Variables {
         // System.out.println(i);
         // System.out.println(k);
         // System.out.println(d);
+        String a = "hi";
+        System.out.println(a);
     }
 }
