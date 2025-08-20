@@ -5,7 +5,7 @@ import java.util.TimeZone;
 
 public class PEChpt2 {
     public static void main(String[] args) {
-        pointTwelve();
+        pointTwenty();
     }
 
     public static void pointTwo() {
@@ -55,11 +55,11 @@ public class PEChpt2 {
 
     public static void pointTen() {
         try (Scanner input = new Scanner(System.in)) {
-            System.err.print("kilograms: ");
+            System.out.print("kilograms: ");
             double kilograms = input.nextDouble();
-            System.err.print("initial: ");
+            System.out.print("initial: ");
             double initialTempature = input.nextDouble();
-            System.err.print("final: ");
+            System.out.print("final: ");
             double finalTempature = input.nextDouble();
             System.out.println(kilograms * (finalTempature - initialTempature) * 4184);
         }
@@ -77,8 +77,43 @@ public class PEChpt2 {
 
     public static void pointForteen() {
         try (Scanner input = new Scanner(System.in)) {
-            
+            System.out.print("pounds: ");
+            double pounds = input.nextDouble();
+            System.out.print("inches: ");
+            double inches = input.nextDouble();
+
+            double kilograms = pounds * 0.45359237;
+            double meters = inches * 0.0254;
+
+            System.out.println("BMI: " + (kilograms/(Math.pow(meters, 2))));
+
+
         } 
     }
+
+    public static void pointSixteen() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("hexagon side: ");
+            double sides = input.nextDouble();
+            System.out.println((3 * Math.pow(3, 0.5))/2 * Math.pow(sides, 2));
+        }
+    }
+
+    public static void pointEighteen() {
+        System.out.println("a   b   pow(a,b)");
+        for (int i = 1; i < 6; i++) {
+            System.out.println(i + "   " + (i + 1) + "   " + (int)Math.pow(i, i + 1));
+            }
+    }
     
+    public static void pointTwenty() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("balance & intrest rate: ");
+            double balance = input.nextDouble();
+            double rate = input.nextDouble();
+
+            System.out.println("intrest: " + balance * (rate/1200));
+            
+        }
+    }
 }
