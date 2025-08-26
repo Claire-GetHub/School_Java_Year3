@@ -13,8 +13,8 @@ public class PEChpt2 {
         // pointTwelve();
         // pointForteen();
         // pointSixteen();
-         pointEighteen();
-         pointTwenty();
+        // pointEighteen();
+        // pointTwenty();
          pointTwentyTwo();
     }
 
