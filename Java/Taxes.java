@@ -1,61 +1,35 @@
+import java.util.Scanner;
 
 public class Taxes {
     public static void main(String[] args) {
 
-        int status = 1;
-        int income = 1000;
-        
-        switch (status) {
-            case 0 -> {
-            }
-            case 1 -> {
-                if (income > 372951) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("filing status: ");
+        int status = input.nextInt();
+        System.out.print("taxable income: ");
+        double income = input.nextDouble();
+        double tax = 0;
 
-                } if (income > 208851) {
-                    
-                } if (income > 137050) {
-                    
-                } if (income > 67900) {
-                    
-                } if (income > 16700) {
-                    
-                } if (income > 0) {
-                    
-                }
-            }
-            case 2 -> {
-                if (income > 186476) {
-                    
-                } else if (income > 104426) {
-                    
-                } else if (income > 68526) {
-                    
-                } else if (income > 33951) {
-                    
-                } else if (income > 8351) {
-                    
-                } else if (income > 0) {
-                    
-                }
-            }
-            case 3 -> {
-                if (income > 372951) {
-                    
-                } else if (income > 190201) {
-                    
-                } else if (income > 117451) {
-                    
-                } else if (income > 45501) {
-                    
-                } else if (income > 11950) {
-                    
-                } else if (income > 0) {
-                    
-                }
-            }
-            default -> {
-            }
+        int[][] incomeRates = {
+                                {372950, 171550, 82250, 33950, 8350, 0},
+                                {372950, 208850, 137050, 67900, 16700, 0},
+                                {186475, 104425, 68525, 33950, 8350, 0}, 
+                                {372950, 190200, 117450, 45500, 11950, 0}
+                                };
+
+        double[] taxRates = {0.35, 0.33, 0.28, 0.25, 0.15, 0.10};
+        
+        int[] incomeRate = incomeRates[status];
+
+        for (int idx = 0; idx < incomeRate.length; idx++) {
+            if (income > incomeRate[idx]) {
+
+                tax += taxRates[idx] * (income - incomeRate[idx]);
+                income = incomeRate[idx];
+
+            } 
         }
 
-            }
+        System.out.println(tax);
+    }
 }
