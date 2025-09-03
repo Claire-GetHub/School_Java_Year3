@@ -1,9 +1,9 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ISBN {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
+            System.out.print("ASBN int: ");
             int num = input.nextInt();
             int[] digits = new int[]{
 
@@ -19,13 +19,18 @@ public class ISBN {
             };
 
             int digitSum = 0;
-            for (int digit : digits) {
-                digitSum += digit;
+            String strNum = "";
+            for (int idx = 0; idx < digits.length; idx++) {
+                digitSum += digits[idx] * (idx + 1);
+                strNum += digits[idx];
             }
-            System.out.println(Arrays.toString(digits));
-            //digit sum isnt correct
-            System.out.println(digitSum % 11);
-
+            digitSum %= 11;
+          
+            if (digitSum > 9) {
+                System.out.println("ISBN- 10 number: " + strNum + "X");
+            } else {
+                System.out.println("ISBN- 10 number: " + strNum + digitSum);
+            }
         }
     }
 }
