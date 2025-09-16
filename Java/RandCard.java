@@ -5,39 +5,21 @@ public class RandCard {
         int randInt = (int) (Math.random() * bound);
 
         String suit;
-        switch(randInt / 13) {
-            case 0 -> {
-                suit = "Spades";
-            }
-            case 1 -> {
-                suit = "Hearts";
-            }
-            case 2 -> {
-                suit = "Diamonds";
-            }
-            case 3 -> {
-                suit = "Clubs";
-            }
-            default -> {
-                suit = "SUIT ERROR";
-            }
-        }
+        suit = switch (randInt / 13) {
+            case 0 -> "Spades";
+            case 1 -> "Hearts";
+            case 2 -> "Diamonds";
+            case 3 -> "Clubs";
+            default -> "SUIT ERROR";
+        };
 
         String rank;
-        switch(randInt % 13) {
-            case 12 -> {
-                rank = "King";
-            }
-            case 11 -> {
-                rank = "Queen";
-            }
-            case 10 -> {
-                rank = "Jack";
-            }
-            default -> {
-                rank = Integer.toString((randInt % 13) + 1);
-            }
-        }
+        rank = switch (randInt % 13) {
+            case 12 -> "King";
+            case 11 -> "Queen";
+            case 10 -> "Jack";
+            default -> Integer.toString((randInt % 13) + 1);
+        };
 
         System.out.println("The card is " + rank +  " of " + suit);
     }
