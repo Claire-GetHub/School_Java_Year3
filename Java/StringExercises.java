@@ -98,7 +98,7 @@ public class StringExercises {
             Character b1 = ((int)str.charAt(1));
             Character b2 = ((int)str.charAt(2));
             Character b3 = ((int)str.charAt(3));
-            System.out.print(lastChar);
+            System.out.print(binary);
         }
     }
 }
