@@ -8,7 +8,8 @@ public class StringExercises {
         // fourPointTwo();
         // fourPointThree();
         // fourPointFour();
-        fourPointFive();
+        // fourPointFive();
+        fourPointSix();
     }
 
     static void fourPointOne() {
@@ -85,6 +86,18 @@ public class StringExercises {
             System.out.print("Enter a string: ");
             String str = input.nextLine().trim();
             Character lastChar = str.charAt(str.length() - 1);
+            System.out.print(lastChar);
+        }
+    }
+
+    static void fourPointSix() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("Enter a four-digit binary string: ");
+            String binary = input.nextLine().trim();
+            Character b0 = ((int)str.charAt(0));
+            Character b1 = ((int)str.charAt(1));
+            Character b2 = ((int)str.charAt(2));
+            Character b3 = ((int)str.charAt(3));
             System.out.print(lastChar);
         }
     }
