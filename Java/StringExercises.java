@@ -95,10 +95,10 @@ public class StringExercises {
             System.out.print("Enter a four-digit binary string: ");
             String binary = input.nextLine().trim();
             Character b0 = ((int)str.charAt(0));
-            Character b1 = ((int)str.charAt(1));
-            Character b2 = ((int)str.charAt(2));
-            Character b3 = ((int)str.charAt(3));
-            System.out.print(binary);
+            Character b1 = ((int)str.charAt(1) * 2);
+            Character b2 = ((int)str.charAt(2) * 4);
+            Character b3 = ((int)str.charAt(3) * 8);
+            System.out.print(b0 + b1);
         }
     }
 }
