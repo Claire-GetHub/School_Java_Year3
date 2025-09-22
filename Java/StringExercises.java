@@ -4,12 +4,14 @@ import java.util.Scanner;
 public class StringExercises {
     //Formula: F = m*g*sin(angle)
     public static void main(String[] args) {
-        // fourPointOne();
+         fourPointOne();
         // fourPointTwo();
         // fourPointThree();
         // fourPointFour();
         // fourPointFive();
-        fourPointSix();
+        // fourPointSix();
+        // fourPointSeven();
+        // fourPointEight();
     }
 
     static void fourPointOne() {
@@ -86,7 +88,7 @@ public class StringExercises {
             System.out.print("Enter a string: ");
             String str = input.nextLine().trim();
             Character lastChar = str.charAt(str.length() - 1);
-            System.out.print(lastChar);
+            System.out.printf("The last character is %c", lastChar);
         }
     }
 
@@ -94,11 +96,35 @@ public class StringExercises {
         try (Scanner input = new Scanner(System.in)) {
             System.out.print("Enter a four-digit binary string: ");
             String binary = input.nextLine().trim();
-            Character b0 = ((int)str.charAt(0));
-            Character b1 = ((int)str.charAt(1) * 2);
-            Character b2 = ((int)str.charAt(2) * 4);
-            Character b3 = ((int)str.charAt(3) * 8);
-            System.out.print(b0 + b1);
+            int b0 = ((Character.getNumericValue(binary.charAt(0))) * 8);
+            int b1 = ((Character.getNumericValue(binary.charAt(1))) * 4);
+            int b2 = ((Character.getNumericValue(binary.charAt(2))) * 2);
+            int b3 = (Character.getNumericValue(binary.charAt(3)));
+            System.out.printf("The decimal number for %s is %d", binary, b0 + b1 + b2 + b3);
         }
     }
+
+    static void fourPointSeven() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("Enter a decimal number between 0 and 15: ");
+            int decimal = input.nextInt();
+            String binary = (decimal/8 % 2) + "";
+            binary += (decimal/4 % 2);
+            binary += (decimal/2 % 2);
+            binary += (decimal % 2);
+
+            System.out.printf("The binary number for %d is %s", decimal, binary);
+        }
+    }
+
+    static void fourPointEight() {
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("Enter a floating point number: ");
+            double digits = input.nextDouble();
+            String str = (int)digits + "";
+            System.out.printf("The number of digits before the decimal point in %.3f is %d", digits, str.length());
+            
+        }
+    }
+    
 }
