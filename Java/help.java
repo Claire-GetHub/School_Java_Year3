@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.Set;
 
 public class help {
       // Function to print an array p[] of size n
@@ -8,9 +9,35 @@ public class help {
             System.out.print(p[i]+" ");
         System.out.println();
     }
+
+    static boolean checkArray(ArrayList<Integer> p, int k, int splits) 
+    {
+        Set<Integer> intSet = Set.copyOf(p);
+        for (int num : p) {
+            if(num > 9) {
+                return false;
+            }
+        }
+        if (k == splits && intSet.size() == k) 
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    static ArrayList<Integer> removeEnd(int p[], int k)
+    {
+        ArrayList<Integer> newArray = new ArrayList<Integer>();
+        for(int i = 0; i < k + 1; i ++) 
+        {
+            newArray.add(p[i]);
+        }
+        return newArray;
+    }
     
     // Function to generate all unique partitions of an integer
-    static void printAllUniqueParts(int n)
+    static void printAllUniqueParts(int n, int splits)
     {
         int[] p = new int[n]; // An array to store a partition
         int k = 0;  // Index of last element in a partition
@@ -21,7 +48,10 @@ public class help {
         while (true)
         {
             // print current partition
-            printArray(p, k+1);
+            if (checkArray(removeEnd(p, k), k + 1, splits)) 
+            { 
+                printArray(p, k+1);
+            }
  
             // Generate next partition
  
@@ -57,10 +87,18 @@ public class help {
             k++;
         }
     }
-    
+
+
     // Driver program
     public static void main (String[] args) 
     {
-        printAllUniqueParts(11);
+        printAllUniqueParts(41, 7);
+        System.out.println("_________");
+        printAllUniqueParts(12, 2);
+        System.out.println("_________");
+        printAllUniqueParts(16, 2);
+        System.out.println("_________");
+        
+        
     }
 }
