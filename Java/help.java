@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Set;
 
 public class help {
@@ -18,17 +19,12 @@ public class help {
                 return false;
             }
         }
-        if (k == splits && intSet.size() == k) 
-        {
-            return true;
-        }
-
-        return false;
+        return k == splits && intSet.size() == k;
     }
 
     static ArrayList<Integer> removeEnd(int p[], int k)
     {
-        ArrayList<Integer> newArray = new ArrayList<Integer>();
+        ArrayList<Integer> newArray = new ArrayList<>();
         for(int i = 0; i < k + 1; i ++) 
         {
             newArray.add(p[i]);
@@ -92,13 +88,13 @@ public class help {
     // Driver program
     public static void main (String[] args) 
     {
-        printAllUniqueParts(41, 7);
-        System.out.println("_________");
-        printAllUniqueParts(12, 2);
-        System.out.println("_________");
-        printAllUniqueParts(16, 2);
-        System.out.println("_________");
-        
-        
+        Scanner input = new Scanner(System.in);
+        while(true) {
+            System.out.print("num: ");
+            int num = input.nextInt();
+            System.out.print("splits: ");
+            int splits = input.nextInt();
+            printAllUniqueParts(num, splits);
+        }
     }
 }

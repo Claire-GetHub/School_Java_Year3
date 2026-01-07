@@ -71,5 +71,14 @@ public class Class {
         // int x = 5;
         // if (x > 0)
         //     System.out.println("pos");
+
+        test(5);
+
+        int[] r = {1,2,3};
+
+    }
+
+    static void test(double num) {
+        System.out.println(num);
     }
 }
