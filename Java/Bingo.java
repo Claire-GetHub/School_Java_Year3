@@ -3,17 +3,50 @@
 public class Bingo {
     
     public static void main(String[] args) {
-        boolean[][] testMarked = {
-            {true, true, true, true, true},
+        boolean[][] testMarked1 = {
+            {true, false, false, true, false},
             {false, true, false, false, false},
-            {false, false, false, false, false},
+            {false, false, true, false, false},
             {false, false, false, true, false},
             {false, false, false, false, true},
         };
+
+        boolean[][] testMarked2 = {
+            {false, false, false, false, false},
+            {false, false, false, false, false},
+            {true, true, true, true, true},
+            {false, false, false, false, false},
+            {false, false, false, false, false},
+        };
+
+        boolean[][] testMarked3 = {
+            {false, false, true, false, false},
+            {false, false, true, false, false},
+            {false, false, true, false, false},
+            {false, false, true, false, false},
+            {false, false, true, false, false},
+        };
         // System.out.println(Arrays.deepToString(createBoard()));
-        System.out.println(checkWin(testMarked));
+        printBoard(createBoard(),testMarked1);
     }
 
+
+    //Print board function
+    public static void printBoard(int[][] board, boolean[][] marks){
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if(marks[row][col]) {
+                    System.out.printf("| >< ");
+                } else {
+                    // board[row][col]
+                    System.out.printf("| %02d ", board[row][col]);
+                }
+            }
+        System.out.println("|");
+        System.out.println("+----+----+----+----+----+");
+        }
+    }
+    //^^ Print board function
 
 
     //Create board functions
@@ -28,7 +61,6 @@ public class Bingo {
             
                 board[col][row] = randomNums[col];
             }
-            
         }
 
         board[2][2] = 0;
@@ -59,7 +91,7 @@ public class Bingo {
     }
 
     public static int[] randomNonDupicateList (int min, int max, int length) {
-        int[] usedNums = new int[5];
+        int[] usedNums = new int[length];
         int num;
 
         //Check that the diffference is > length. Otherwise funtion would run forever.
@@ -97,35 +129,30 @@ public class Bingo {
     //Check win function
     public static boolean checkWin(boolean[][] marked) {
         boolean win = false;
-        
+        int colCount = 0;
         int diagonalCount = 0;
 
-        for (int y = 0; y < marked.length; y++) {
+        for (int i = 0; i < marked.length; i++) {
             int rowCount = 0;
-            int colCount = 0;
-            for (int x = 0; x < marked[0].length; x++) {
-                if(rowCount == 5 || colCount == 5 || diagonalCount == 5) {
-                    win = true;
-                    break;
-                }
-
+            for (int j = 0; j < marked[0].length; j++) {
+                
                 //Check rows
-                if (marked[y][x]) {
+                if (marked[i][j]) {
                     rowCount++;
                 } else {
                     rowCount = 0;
                 }
 
                 //check columns
-                if (marked[x][y]) {
+                if (marked[j][i]) {
                     colCount++;
                 } else {
                     colCount = 0;
                 }
 
                 //check diagonals
-                if (x == y) {
-                    if(marked[y][x]) {
+                if (j == i) {
+                    if(marked[i][j]) {
                         diagonalCount++;
                     } else {
                         diagonalCount = 0;
@@ -133,8 +160,11 @@ public class Bingo {
                 }
 
                 
-                System.out.println("" + y + x + rowCount);
-
+                if(rowCount == 5 || colCount == 5 || diagonalCount == 5) {
+                    win = true;
+                    break;
+            
+                }
             }
         }
 
