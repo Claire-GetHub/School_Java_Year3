@@ -1,6 +1,7 @@
 import java.util.Scanner;
+
+
 public class pearsonHelp {
-    
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // int[] monthdays = new int[]{31,28,31,30,31,30,31,30,31,30,31,30};
@@ -106,5 +107,112 @@ public class pearsonHelp {
         //     {0, 0, 0}
         // }
 
-    }
+    // int row = input.nextInt();
+    // int col = input.nextInt();
+    // double[][] a = new double[row][col];
+
+    // for(int r = 0; r < row; r++) {
+    //   for(int c = 0; c < col; c++) {
+    //     a[r][c] = input.nextDouble();
+    //   }
+    // }
+
+    // System.err.println(Arrays.deepToString(a));
+        
+    // String s1 = "Welcome to Java"; 
+
+    // String s2 = "Welcome to Java"; 
+    // int i = s1.length();
+    // System.out.println("s1 == s2 is " + s1 == s2);
+
+
+
+  }
 }
+
+
+// public class pearsonHelp {
+//   static int cat;
+
+//   public pearsonHelp() {
+//     cat += 6;
+//   }
+// }
+
+// import java.util.Arrays;
+
+// public class Artist {}
+
+// public class pearsonHelp {
+//     private String trackName;
+//     private boolean available;
+//     private int rating;
+//     private Artist artist;
+//     private String[] genres;
+
+//     public boolean setTrackName(String trackName) {
+//         if (!trackName.equals("") && trackName != null) {
+//             this.trackName = trackName;
+//             return true;
+//         }
+//         return false;  
+//     }
+
+//     public String getTrackName() {
+//         return trackName;
+//     }
+
+//     public boolean setAvailable(boolean available) {
+//         if (available != null) {
+//             this.available = available;
+//             return true;
+//         }
+//         return false;
+
+//     }
+
+//     public boolean isAvailable() {
+//         return available;
+//     }
+
+//     public boolean setRating(int rating) {
+//         if (rating <= 5 && rating >= 1) {
+//             this.rating = rating;
+//             return true;
+//         }
+//         return false;
+//     }
+
+//     public int getRating() {
+//         return rating;
+//     }
+
+//     public boolean setArtist(Artist artist) {
+//         if (genres != null) {
+//             this.artist = artist;
+//             return true;
+//         }
+//         return false;
+
+//     }
+
+//     public Artist getArtist() {
+//         return this.artist.copy();
+//     }
+
+//     public boolean setGenres(String[] genres) {
+//         if (genres != null) {
+//             this.genres = Arrays.copyOf(genres, genres.length);
+//             return true;
+//         }
+//         return false;
+//     }
+
+//     public String[] getGenres() {
+//         if (genres != null) {
+//             return Arrays.copyOf(genres, genres.length);
+//         }
+//         return null;
+//     }
+// }
+

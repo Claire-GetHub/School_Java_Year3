@@ -1,38 +1,69 @@
-
+import java.util.Scanner;
 
 public class Bingo {
     
     public static void main(String[] args) {
-        boolean[][] testMarked1 = {
-            {true, false, false, true, false},
-            {false, true, false, false, false},
-            {false, false, true, false, false},
-            {false, false, false, true, false},
-            {false, false, false, false, true},
-        };
+        int[] calledNumbers = randomNonDupicateList(1, 75, 75);
 
-        boolean[][] testMarked2 = {
-            {false, false, false, false, false},
-            {false, false, false, false, false},
-            {true, true, true, true, true},
-            {false, false, false, false, false},
-            {false, false, false, false, false},
-        };
 
-        boolean[][] testMarked3 = {
-            {false, false, true, false, false},
-            {false, false, true, false, false},
-            {false, false, true, false, false},
-            {false, false, true, false, false},
-            {false, false, true, false, false},
-        };
-        // System.out.println(Arrays.deepToString(createBoard()));
-        printBoard(createBoard(),testMarked1);
+        Scanner input = new Scanner(System.in);
+        System.out.print("player amount: ");
+        int playerAmount = input.nextInt();
+        boolean[] winners = new boolean[playerAmount];
+        boolean won = false;
+
+        input.nextLine();
+        int[][][] boards = new int[playerAmount][][];
+        boolean[][][] marks = new boolean[playerAmount][][];
+
+        System.out.println("starting boards");
+        for (int player = 0; player < playerAmount; player++) {
+            boards[player] = createBoard();
+            marks[player] = createMarks();
+
+            System.out.println("player " + (player + 1));
+            printBoard(boards[player], marks[player]);
+        }
+        input.nextLine();
+
+        for (int i = 0; i < calledNumbers.length; i++) {
+            System.out.println("round " + (i + 1));
+            for (int player = 0; player < playerAmount; player++) {
+                System.out.println("player " + (player + 1));
+                newMarks(boards[player], marks[player], calledNumbers[i]);
+                printBoard(boards[player], marks[player]);
+
+                if (checkWin(marks[player])) {
+                    winners[player] = true;
+                }
+            }
+            System.out.println(calledNumbers[i] + " was called!\n");
+            
+            input.nextLine();
+            for (int player = 0; player < winners.length; player++) {
+                if (winners[player]) {
+                    won = true;
+                    System.out.println("player " + (player + 1) + " won!");
+                    System.out.println("THE WINNING BOARD");
+                    printBoard(boards[player], marks[player]);
+                    System.out.println();
+                }
+            }
+
+            if(won) {
+                System.out.println((i + 1) + " numbers were called");
+                break;
+            }
+        }
     }
 
 
     //Print board function
     public static void printBoard(int[][] board, boolean[][] marks){
+
+        System.out.println("+----+----+----+----+----+");
+        System.out.println("|  B |  I |  N |  G |  O |");
+        System.out.println("+----+----+----+----+----+");
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
                 if(marks[row][col]) {
@@ -56,9 +87,8 @@ public class Bingo {
 
 
         for (int row = 0; row < board.length; row++) {
-            int[] randomNums = randomNonDupicateList(rowContraints[row][0], rowContraints[row][1]);
+            int[] randomNums = randomNonDupicateList(rowContraints[row][1], rowContraints[row][0]);
             for (int col = 0; col < board[0].length; col++) {
-            
                 board[col][row] = randomNums[col];
             }
         }
@@ -67,11 +97,12 @@ public class Bingo {
         return board;
     }
 
-    public static int[][] createMarks() {
-        int[][] marked = new int[5][5];
-        marked[2][2] = 1;
+    public static boolean[][] createMarks() {
+        boolean[][] marked = new boolean[5][5];
+        marked[2][2] = true;
         return marked;
     }
+
 
     public static boolean [][] newMarks(int[][] board, boolean[][] marks, int num) {
         for (int row = 0; row < board.length; row++) {
@@ -95,7 +126,7 @@ public class Bingo {
         int num;
 
         //Check that the diffference is > length. Otherwise funtion would run forever.
-        if (max - min < length - 1) {
+        if (max - min > length - 1) {
             return usedNums;
         }
         
